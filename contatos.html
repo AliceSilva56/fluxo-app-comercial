@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>FluxoApp - Controle Financeiro Simplificado</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Simplifique seu controle financeiro pessoal com o FluxoApp. Registre gastos, acompanhe metas e visualize suas finanças de forma clara." />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script type="module" src="js/script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <i class="fas fa-chart-line"></i>
+            <span>FluxoApp</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Fale Conosco</h1>
+        <p>Estamos aqui para ajudar. Entre em contato conosco para dúvidas, sugestões ou parcerias.</p>
+      </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-container">
+          <!-- Formulário de Contato -->
+          <div class="contact-form animate-fade-in">
+            <h2>Envie uma mensagem</h2>
+            <form id="contactForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="name">Seu Nome</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Seu E-mail</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Assunto</label>
+                <input type="text" id="subject" name="subject" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Sua Mensagem</label>
+                <textarea id="message" name="message" class="form-control" required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Enviar Mensagem</button>
+            </form>
+          </div>
+
+          <!-- Informações de Contato -->
+          <div class="contact-info animate-fade-in delay-1">
+            <h2>Informações de Contato</h2>
+            
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Endereço</h3>
+                <p>São Paulo, SP<br>Brasil</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>E-mail</h3>
+                <p><a href="mailto:contato@arsavia.com.br">contato@arsavia.com.br</a></p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Telefone</h3>
+                <p><a href="tel:+5511999999999">+55 (11) 99999-9999</a></p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Horário de Atendimento</h3>
+                <p>Segunda a Sexta<br>9:00 - 18:00</p>
+              </div>
+            </div>
+
+            <!-- Seção do Desenvolvedor -->
+            <div class="developer-card" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee;">
+              <div style="text-align: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: #f0f0f0; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                  <i class="fas fa-user-circle" style="font-size: 3rem; color: #666;"></i>
+                </div>
+                <h3 style="margin: 0.5rem 0;">Alice Pinheiro da Silva</h3>
+                <p style="color: #666; margin-bottom: 0.5rem;">Desenvolvedora Full Stack</p>
+                <p style="color: #666; margin-bottom: 1rem;"><strong>Empresa:</strong> Arsavia</p>
+                <div class="social-links" style="display: flex; justify-content: center; gap: 1rem;">
+                  <a href="https://instagram.com/a.pinheiro.dev" target="_blank" style="color: #2c3e50; font-size: 1.2rem;">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://github.com/AliceSilva56" target="_blank" style="color: #2c3e50; font-size: 1.2rem;">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="mailto:contato@arsavia.com.br" style="color: #2c3e50; font-size: 1.2rem;">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="map-container animate-fade-in delay-2">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1977211527456!2d-46.65867588502222!3d-23.56141138468291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59ceb5ebcec9%3A0x8b0b4b7a3a0d1b1a!2sS%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1630000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Redes Sociais -->
+    <section class="social-section">
+      <div class="container">
+        <h2>Conecte-se Conosco</h2>
+        <p>Siga-nos nas redes sociais para ficar por dentro das novidades</p>
+        <div class="social-links">
+          <a href="https://instagram.com/a.pinheiro.dev" target="_blank" class="social-link" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://github.com/AliceSilva56" target="_blank" class="social-link" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-link" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" class="social-link" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <i class="fas fa-chart-line"></i>
+            <span>FluxoApp</span>
+          </div>
+          <p>Desenvolvido com <i class="fas fa-heart"></i> por Alice Pinheiro da Silva</p>
+          <p class="license">© 2023 Arsavia. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      /* Estilos para a página de Contatos */
+      .contact-hero {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 5rem 0 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero h1 {
+        font-size: 2.8rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .contact-hero h1:after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #0037ff 0%, #365dea 100%);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .contact-hero p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        max-width: 700px;
+        margin: 2rem auto 0;
+        line-height: 1.8;
+      }
+
+      /* Seção de Contato */
+      .contact-section {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      /* Formulário de Contato */
+      .contact-form {
+        background: #fff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eee;
+      }
+
+      .contact-form h2 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: #0037ff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 55, 255, 0.1);
+        outline: none;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .btn-submit {
+        background: linear-gradient(135deg, #0037ff 0%, #365dea 100%);
+        color: white;
+        border: none;
+        padding: 0.9rem 2rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 55, 255, 0.2);
+      }
+
+      /* Informações de Contato */
+      .contact-info {
+        background: #f8f9fa;
+        padding: 2.5rem;
+        border-radius: 12px;
+        height: 100%;
+      }
+
+      .contact-info h2 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #0037ff 0%, #365dea 100%);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+        font-size: 1.2rem;
+      }
+
+      .contact-details h3 {
+        color: #2c3e50;
+        margin: 0 0 0.3rem;
+        font-size: 1.1rem;
+      }
+
+      .contact-details p, 
+      .contact-details a {
+        color: #6c757d;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-details a:hover {
+        color: #0037ff;
+      }
+
+      /* Mapa */
+      .map-container {
+        margin-top: 3rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eee;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        display: block;
+      }
+
+      /* Seção de Redes Sociais */
+      .social-section {
+        padding: 4rem 0;
+        background: #f8f9fa;
+        text-align: center;
+      }
+
+      .social-section h2 {
+        color: #2c3e50;
+        margin-bottom: 2rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        color: #2c3e50;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        transform: translateY(-5px);
+        color: white;
+        background: linear-gradient(135deg, #0037ff 0%, #365dea 100%);
+      }
+
+      /* Animações */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      .delay-1 { animation-delay: 0.2s; }
+      .delay-2 { animation-delay: 0.4s; }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .contact-hero h1 {
+          font-size: 2.2rem;
+        }
+        
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .contact-form,
+        .contact-info {
+          padding: 1.5rem;
+        }
+        
+        .map-container iframe {
+          height: 300px;
+        }
+      }
+    </style>
+</body>
+</html>

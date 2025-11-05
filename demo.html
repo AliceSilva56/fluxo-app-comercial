@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>FluxoApp - Controle Financeiro Simplificado</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Simplifique seu controle financeiro pessoal com o FluxoApp. Registre gastos, acompanhe metas e visualize suas finanças de forma clara." />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      /* Estilos para a página de Demonstração */
+      .demo-hero {
+        background: linear-gradient(135deg, #0037ff 0%, #365dea 100%);
+        color: white;
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .demo-hero .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content {
+        flex: 1;
+        max-width: 600px;
+        padding-right: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .btn i {
+        margin-right: 0.5rem;
+      }
+
+      .btn-primary {
+        background: white;
+        color: #0037ff;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        border: 2px solid white;
+        color: white;
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Seção de Demonstração Web */
+      .web-demo-section {
+        padding: 5rem 0;
+        background: #f8f9fa;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        line-height: 1.6;
+      }
+
+      .demo-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .demo-frame {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .browser-bar {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 1rem;
+        background: #f1f3f5;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .browser-controls {
+        display: flex;
+        gap: 0.5rem;
+        margin-right: 1rem;
+      }
+
+      .browser-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .browser-dot.red { background: #ff5f56; }
+      .browser-dot.yellow { background: #ffbd2e; }
+      .browser-dot.green { background: #27c93f; }
+
+      .browser-url {
+        flex: 1;
+        background: white;
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: #6c757d;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .demo-content {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+      }
+
+      .demo-placeholder {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .demo-placeholder i {
+        font-size: 4rem;
+        color: #0037ff;
+        margin-bottom: 1rem;
+      }
+
+      .demo-placeholder p {
+        margin-bottom: 1.5rem;
+        color: #6c757d;
+      }
+
+      .demo-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .feature {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 55, 255, 0.1);
+      }
+
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 55, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .feature-icon i {
+        font-size: 1.5rem;
+        color: #0037ff;
+      }
+
+      .feature h3 {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature p {
+        color: #6c757d;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .demo-note {
+        text-align: center;
+        color: #6c757d;
+        font-size: 0.95rem;
+        padding: 1rem;
+        background: rgba(0, 55, 255, 0.05);
+        border-radius: 8px;
+        max-width: 800px;
+        margin: 2rem auto 0;
+      }
+
+      .demo-note i {
+        margin-right: 0.5rem;
+        color: #0037ff;
+      }
+
+      /* Seção de Vídeo */
+      .video-demo {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .video-container {
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .video-placeholder {
+        position: relative;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        cursor: pointer;
+      }
+
+      .video-placeholder i {
+        font-size: 4rem;
+        color: #0037ff;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .video-placeholder:hover i {
+        transform: scale(1.1);
+      }
+
+      .video-features {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .video-feature {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      .video-feature i {
+        color: #28a745;
+      }
+
+      /* Seção de Capturas de Tela */
+      .screenshots {
+        padding: 5rem 0;
+        background: #f8f9fa;
+      }
+
+      .screenshot-slider {
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding: 1rem 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .screenshot {
+        flex: 0 0 auto;
+        width: 280px;
+        scroll-snap-align: start;
+        text-align: center;
+      }
+
+      .screenshot img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .screenshot:hover img {
+        transform: translateY(-5px);
+      }
+
+      .screenshot p {
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      /* Seção de Download do App */
+      .app-download {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        color: white;
+      }
+
+      .download-content {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .download-text {
+        flex: 1;
+      }
+
+      .download-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .download-text p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .download-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .download-btn {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .download-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .download-btn i {
+        font-size: 1.8rem;
+        margin-right: 0.8rem;
+      }
+
+      .download-btn div {
+        text-align: left;
+        line-height: 1.2;
+      }
+
+      .download-btn span {
+        display: block;
+        font-size: 0.7rem;
+        opacity: 0.8;
+      }
+
+      .download-btn strong {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .qr-code {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+      }
+
+      .qr-code img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 0.5rem;
+      }
+
+      .qr-code p {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin: 0;
+      }
+
+      .download-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .download-image img {
+        max-width: 300px;
+        height: auto;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Seção de Dúvidas Frequentes */
+      .faq {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background: #f8f9fa;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .faq-question:hover {
+        background: #f1f3f5;
+      }
+
+      .faq-question h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #2c3e50;
+      }
+
+      .faq-question i {
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 0 1.5rem 1.5rem;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: #6c757d;
+        line-height: 1.6;
+      }
+
+      .support-cta {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .support-cta a {
+        color: #0037ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .support-cta a:hover {
+        text-decoration: underline;
+      }
+
+      /* Estilos responsivos */
+      @media (max-width: 1024px) {
+        .demo-container {
+          grid-template-columns: 1fr;
+        }
+
+        .download-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .download-buttons {
+          justify-content: center;
+        }
+
+        .qr-code {
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .demo-hero .container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-content {
+          padding-right: 0;
+          margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+          justify-content: center;
+        }
+
+        .hero-image {
+          margin-top: 2rem;
+        }
+
+        .video-features {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .screenshot {
+          width: 240px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .download-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .download-btn {
+          width: 100%;
+          max-width: 250px;
+        }
+      }
+    </style>
+    <script type="module" src="script.js"></script>
+    <script>
+      // Adiciona interatividade ao FAQ
+      document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question');
+          
+          question.addEventListener('click', () => {
+            // Fecha todas as outras respostas
+            faqItems.forEach(otherItem => {
+              if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+              }
+            });
+            
+            // Alterna a classe active no item clicado
+            item.classList.toggle('active');
+          });
+        });
+        
+        // Adiciona classe 'active' ao primeiro item do FAQ por padrão
+        if (faqItems.length > 0) {
+          faqItems[0].classList.add('active');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <i class="fas fa-chart-line"></i>
+            <span>FluxoApp</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="demo-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Experimente o FluxoApp</h1>
+          <p>Descubra como é fácil controlar suas finanças com nossa demonstração interativa</p>
+          <div class="cta-buttons">
+            <a href="#web-demo" class="btn btn-primary">
+              <i class="fas fa-laptop"></i> Versão Web
+            </a>
+            <a href="#app-download" class="btn btn-outline">
+              <i class="fas fa-mobile-alt"></i> Baixar App
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://via.placeholder.com/600x400/0037ff/ffffff?text=FluxoApp+Demonstração" alt="FluxoApp em Destaque">
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Demonstração Web -->
+    <section id="web-demo" class="web-demo-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Demonstração Web</h2>
+          <p>Experimente nossa versão web e veja como o FluxoApp pode transformar sua vida financeira</p>
+        </div>
+        
+        <div class="demo-container">
+          <div class="demo-frame">
+            <div class="browser-bar">
+              <div class="browser-controls">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">app.fluxo.com.br/demo</div>
+            </div>
+            <div class="demo-content">
+              <div class="demo-placeholder">
+                <i class="fas fa-desktop"></i>
+                <p>Versão Web do FluxoApp</p>
+                <a href="https://fluxo-app-web-42dm.vercel.app/" target="_blank" class="btn btn-primary">
+                  <i class="fas fa-external-link-alt"></i> Abrir Demonstração
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="demo-features">
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <h3>Análise Completa</h3>
+              <p>Visualize seus gastos por categoria e acompanhe seu progresso financeiro</p>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <h3>Controle Total</h3>
+              <p>Gerencie todas as suas finanças em um só lugar, de forma simples e intuitiva</p>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-bell"></i>
+              </div>
+              <h3>Notificações</h3>
+              <p>Receba alertas sobre contas a pagar e metas financeiras</p>
+            </div>
+          </div>
+        </div>
+        
+        <p class="demo-note">
+          <i class="fas fa-info-circle"></i> A versão web é uma demonstração com funcionalidades limitadas. 
+          Baixe o aplicativo para ter acesso a todos os recursos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção de Vídeo -->
+    <section class="video-demo">
+      <div class="container">
+        <div class="section-header">
+          <h2>Assista ao Tutorial</h2>
+          <p>Veja como o FluxoApp pode ajudar você a organizar suas finanças em poucos passos</p>
+        </div>
+        
+        <div class="video-container">
+          <div class="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+            <p>Vídeo de demonstração do FluxoApp</p>
+          </div>
+        </div>
+        
+        <div class="video-features">
+          <div class="video-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Interface intuitiva e fácil de usar</span>
+          </div>
+          <div class="video-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Relatórios detalhados em tempo real</span>
+          </div>
+          <div class="video-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Sincronização entre dispositivos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Capturas de Tela -->
+    <section class="screenshots">
+      <div class="container">
+        <div class="section-header">
+          <h2>Conheça o Aplicativo</h2>
+          <p>Explore as principais telas e recursos do FluxoApp</p>
+        </div>
+        
+        <div class="screenshot-slider">
+          <div class="screenshot">
+            <img src="https://via.placeholder.com/300x600/f8f9fa/0037ff?text=Dashboard" alt="Dashboard do App">
+            <p>Visão Geral</p>
+          </div>
+          <div class="screenshot">
+            <img src="https://via.placeholder.com/300x600/f8f9fa/0037ff?text=Transações" alt="Lista de Transações">
+            <p>Transações</p>
+          </div>
+          <div class="screenshot">
+            <img src="https://via.placeholder.com/300x600/f8f9fa/0037ff?text=Gráficos" alt="Gráficos de Gastos">
+            <p>Gráficos</p>
+          </div>
+          <div class="screenshot">
+            <img src="https://via.placeholder.com/300x600/f8f9fa/0037ff?text=Metas" alt="Acompanhamento de Metas">
+            <p>Metas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Download do App -->
+    <section id="app-download" class="app-download">
+      <div class="container">
+        <div class="download-content">
+          <div class="download-text">
+            <h2>Baixe o Aplicativo</h2>
+            <p>Disponível para iOS e Android. Comece a controlar suas finanças agora mesmo!</p>
+            
+            <div class="download-buttons">
+              <a href="#" class="download-btn">
+                <i class="fab fa-apple"></i>
+                <div>
+                  <span>Disponível na</span>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+              
+              <a href="#" class="download-btn">
+                <i class="fab fa-google-play"></i>
+                <div>
+                  <span>Disponível no</span>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+            </div>
+            
+            <div class="qr-code">
+              <img src="https://via.placeholder.com/150/ffffff/0037ff?text=QR+Code" alt="QR Code para Download">
+              <p>Escaneie para baixar</p>
+            </div>
+          </div>
+          
+          <div class="download-image">
+            <img src="https://via.placeholder.com/400/0037ff/ffffff?text=Mobile+App" alt="FluxoApp Mobile">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Seção de Dúvidas Frequentes -->
+    <section class="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Dúvidas Frequentes</h2>
+          <p>Encontre respostas para as perguntas mais comuns sobre o FluxoApp</p>
+        </div>
+        
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>O FluxoApp é gratuito?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Sim, o FluxoApp possui uma versão gratuita com recursos básicos para controle financeiro. Oferecemos também um plano Premium com funcionalidades adicionais por uma assinatura mensal.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Meus dados estão seguros?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Sim, levamos a segurança dos seus dados muito a sério. Todas as informações são criptografadas e protegidas com os mais altos padrões de segurança do mercado.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Posso usar o FluxoApp sem conexão com a internet?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Sim, o aplicativo móvel funciona offline. Você pode adicionar despesas e receitas mesmo sem conexão, e os dados serão sincronizados quando você estiver online novamente.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Como faço para exportar meus dados?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Na versão web, acesse Configurações > Exportar Dados para baixar um arquivo CSV com todas as suas transações. Na versão móvel, essa opção está disponível no menu de configurações.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="support-cta">
+          <p>Não encontrou o que procura? <a href="contatos.html">Entre em contato conosco</a> e nossa equipe terá prazer em ajudar!</p>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <i class="fas fa-chart-line"></i>
+            <span>FluxoApp</span>
+          </div>
+          <p>Desenvolvido com <i class="fas fa-heart"></i> usando Flutter</p>
+          <p class="license">Distribuído sob licença MIT</p>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
