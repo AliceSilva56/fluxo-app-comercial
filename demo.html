@@ -612,6 +612,24 @@
           max-width: 250px;
         }
       }
+      .video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
     </style>
     <script type="module" src="script.js"></script>
     <script>
@@ -753,11 +771,11 @@
         </div>
         
         <div class="video-container">
-          <div class="video-placeholder">
-            <i class="fas fa-play-circle"></i>
-            <p>Vídeo de demonstração do FluxoApp</p>
-          </div>
-        </div>
+      <video controls poster="assets/img/preview.jpg" width="100%">
+        <source src="tutorial.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+      </video>
+    </div>
         
         <div class="video-features">
           <div class="video-feature">
