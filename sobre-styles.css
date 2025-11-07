@@ -7,6 +7,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin-top: 25px;
 }
 
 .about-hero h1 {
@@ -142,7 +143,7 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: -75px auto 1.5rem;
+  margin: -1px auto 1.5rem;
   border: 5px solid white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -171,6 +172,7 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-top: 15px;
 }
 
 .social-links a {
